@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import img from '../../assets/img/images.png'
+import img from '../../assets/img/logo.png'
 
 const HeaderToolbar = () => {
     return (
@@ -42,6 +42,8 @@ const HeaderToolbar = () => {
                 </ul>
             </div>
         </div>
+
+    
     );
 }
 

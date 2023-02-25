@@ -1,38 +1,54 @@
-import React, { useEffect, useRef } from 'react';
-
+import React, { useEffect } from 'react';
+import { Rate } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../../redux/actions';
 const Options = () => {
-    const videoRef = useRef(null)
+    const dispatch = useDispatch()
     useEffect(() => {
-        // const handleHoverEventOver = () => {
-        //     videoRef.current.play()
-        // };
-        // const handleHoverEventOut = () => {
-        //     videoRef.current.currentTime = 0;
-        //     videoRef.current.pause();
-        // };
+        dispatch(actions.act_get_items())
+
+    }, [])
+
+    const listItems = useSelector(state => state.getItems);
+    let Item = listItems.map((itemProp) => (
+        <div className='options-item' key={itemProp.id}>
+            <div className='options-item-video' >
+                <video className='introVideo' playsInline={true} loop={true} muted={true}>
+                    <source src={itemProp.videoSrc} />
+                </video>
+                <div className='item-promotion-number'> -{itemProp.promotion}% </div>
+                <div className='item-promotion-bgd'></div>
+            </div>
+            <div className='item-infor'>
+                <div className='item-title'>
+                    <h3>{itemProp.titleProduct} </h3>
+                    <Rate allowHalf defaultValue={itemProp.rate} ></Rate>
+                    <p className='item-comment'>From: {itemProp.from}</p>
+                </div>
+                <div className='item-price'><p>{itemProp.price}</p> <p>{itemProp.currencyUnit}</p></div>
+            </div>
+        </div>
+    ))
+
+    useEffect(() => {
         let videoCollection = document.querySelectorAll(".introVideo");
-        console.log(videoCollection);
-        
         videoCollection.forEach(element => {
-            element.addEventListener('mouseover', (event) => {
-              event.target.play()
-            });
-            element.addEventListener('mouseout', (event) => {
-                event.target.currentTime = 0;
+            element.addEventListener("mouseover", (event) => event.target.play())
+            element.addEventListener("mouseout", (event) => {
                 event.target.pause()
+                event.target.currentTime = 0;
             })
-        });
-        
-        // document.getElementById('introVideo').addEventListener('mouseover', handleHoverEventOver)
-        // document.getElementById('introVideo').addEventListener('mouseout', handleHoverEventOut)
+        })
+
+
         return () => {
             videoCollection.forEach(element => {
                 element.removeEventListener('mouseover', (event) => {
-                  event.target.play()
+                    event.target.play()
                 });
                 element.removeEventListener('mouseout', (event) => {
-                    event.target.currentTime = 0;
                     event.target.pause()
+                    event.target.currentTime = 0;
                 })
             });
         }
@@ -42,39 +58,8 @@ const Options = () => {
     return (
         <div className='body-options-container'>
             <div className='options-items'>
-
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-                <video className='introVideo' ref={videoRef} playsInline={true} loop={true} muted={true}>
-                    <source src='https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/video%2FautumnLeaves.mp4?alt=media&token=dcc0d149-6244-4471-8e8d-1404250e9b33' />
-                </video>
-
-            </div>
+                {Item}
+            </div >
         </div >
     );
 }

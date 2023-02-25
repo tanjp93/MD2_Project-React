@@ -139,6 +139,7 @@ table {
 .login-registerForm {
     width: 200px;
     display: flex;
+    /* gap: 5px; */
     justify-content: space-between;
     align-items: center;
 }
@@ -148,7 +149,7 @@ table {
     width: 100%;
     height: 120px;
     margin: 5px 0px;
-    border: 1px solid red;
+    background-color: #EDF6F9;
 }
 
 .header-menu {
@@ -167,6 +168,8 @@ table {
 }
 
 .header-menu_logoImg {
+    position: absolute;
+    top: 30px;
     width: 100px;
 }
 
@@ -283,19 +286,91 @@ table {
 
 .options-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    height: auto;
     box-sizing: border-box;
     gap: 5px;
+
 }
 
-
-
-.options-items  video {
+.options-item {
     width: 32.5%;
-    height: auto;
+    height: 500px;
+    margin-bottom: 10px;
+    background-color: #FBF3F7;
+}
+
+.options-item-video {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 5%;
+    margin-bottom: 10px;
+}
+
+.introVideo {
+    position: absolute;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 5%;
+
+}
+
+.item-promotion-number {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.item-promotion-bgd {
+    position: absolute;
+    background-color: #FF3366;
+    left: -20px;
+    top: -20px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    z-index: 0;
+}
+
+.item-infor{
+    padding: 0px 10px;
+    position: relative;
+}
+.item-infor h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.item-comment{
+    margin: 10px 0px;
+    font-size: 18px;
+}
+.item-price{
+    position: absolute;
+    right: 40px;
+    bottom: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px
+}
+
+.item-price p:last-child {
+    font-size: 14px;
 }
 
 /*Options*/
+
+/*Login*/
+
+.form_login{
+    width: 1200px;
+    height: 500px;
+    background-color: #FF3366; background-color: #FF3366;
+}
