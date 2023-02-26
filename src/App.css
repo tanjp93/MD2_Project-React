@@ -137,9 +137,9 @@ table {
 }
 
 .login-registerForm {
-    width: 200px;
+    width: 180px;
     display: flex;
-    /* gap: 5px; */
+    gap: 5px;
     justify-content: space-between;
     align-items: center;
 }
@@ -202,6 +202,7 @@ table {
 .header-menu_tool {
     max-width: 30%;
     height: 100%;
+    transform: translateX(-10px);
 }
 
 .header-opttion {
@@ -223,6 +224,10 @@ table {
 
 } */
 
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
 
 
 /*Body*/
@@ -337,20 +342,23 @@ table {
     z-index: 0;
 }
 
-.item-infor{
+.item-infor {
     padding: 0px 10px;
     position: relative;
 }
-.item-infor h3{
+
+.item-infor h3 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
-.item-comment{
+
+.item-comment {
     margin: 10px 0px;
     font-size: 18px;
 }
-.item-price{
+
+.item-price {
     position: absolute;
     right: 40px;
     bottom: 0px;
@@ -369,8 +377,80 @@ table {
 
 /*Login*/
 
-.form_login{
-    width: 1200px;
-    height: 500px;
-    background-color: #FF3366; background-color: #FF3366;
+
+.form {
+    width: 100%;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EDF6F9;
+    overflow: hidden;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/images%2Fdownload.jfif?alt=media&token=51451bcb-bb3e-4721-bb87-67a4ef7dd845');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+.formLoginContainer{
+    width: 60%;
+    height:60%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(237,246,249);
+}
+.loginTitile{
+    text-align: center;
+}
+.loginTitile h3{
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0px;
+}
+.loginInput{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    margin: 10px;
+}
+.loginInput-titile{
+width: 20%;
+padding: 0px 20px 0 40px;
+font-size: 14px;
+}
+.emailErr{
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+}
+.loginInput input{
+    font-size: 14px;
+    width: 60%;
+    height: 30px;
+}
+.loginInput_checkbox{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+.formLoginSubmit{
+    width: 100%;
+    height: auto;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formNotice{
+    color: rgb(248, 47, 47);
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.formBackToHome{
+    margin:0 50px;
+}
+
+/*Register*/

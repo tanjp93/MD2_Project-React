@@ -1,14 +1,18 @@
 import React from 'react';
 import { Button } from 'antd';
 import img from '../../assets/img/logo.png'
+import { useNavigate, Link } from 'react-router-dom';
 
 const HeaderToolbar = () => {
+    const navigate = useNavigate()
     return (
         <div className='header'>
             <div className='header-menu'>
-                    <div className='header-menu_logo'>
+                <div className='header-menu_logo'>
+                    <Link to='/'>
                         <img className='header-menu_logoImg' src={img} alt="Error Logo" />
-                    </div>
+                    </Link>
+                </div>
                 <div className='header-menu_toolbar'>
                     <ul>
                         <li>Ưu đãi</li>
@@ -27,8 +31,12 @@ const HeaderToolbar = () => {
                     </ul>
                 </div>
                 <div className='header-menu_tool login-registerForm'>
-                    <Button type='primary'>Đăng Nhập</Button>
-                    <Button >Đăng Ký</Button>
+                    <Button type='primary' onClick={() => {
+                        navigate("/login")
+                    }}>Đăng Nhập</Button>
+                    <Button onClick={() => {
+                        navigate("/register")
+                    }}>Đăng Ký</Button>
                 </div>
             </div>
             <div className='header-opttion'>
@@ -43,7 +51,7 @@ const HeaderToolbar = () => {
             </div>
         </div>
 
-    
+
     );
 }
 

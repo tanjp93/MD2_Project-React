@@ -1,16 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import HeaderToolbar from './components/header/HeaderToolbar';
-import BodyContent from './components/body/BodyContent';
-import ModalForm from './components/header/ModalForm';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './components/homePage';
+import FormLogin from './components/form/FormLogin';
+import FormRegister from './components/form/FormRegister';
+
 
 
 function App() {
   return (
     <div className="App">
-      {/* <HeaderToolbar/>
-      <BodyContent/> */}
-      <ModalForm/>
+      <Routes>
+        <Route path='/' element ={<HomePage/>}/> 
+        <Route path='/login' element={<FormLogin/>} /> 
+        <Route path='/register' element={<FormRegister/>} /> 
+      </Routes>
     </div>
   );
 }

@@ -4,6 +4,9 @@ import * as act_saga from './useSaga'
 
 export const rootSaga=function*(){
     yield all([
-        takeLatest(actionTypes.GET_LIST_PRODUCT,act_saga.PRODUCT_SAGA_GET)
+        //// products
+        takeLatest(actionTypes.GET_LIST_PRODUCT,act_saga.PRODUCT_SAGA_GET),
+        //// users
+        takeLatest(actionTypes.POST_USER,act_saga.USER_POST_SAGA)
     ])
 }

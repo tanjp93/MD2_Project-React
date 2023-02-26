@@ -1,2 +1,8 @@
+//// products
 export const GET_LIST_PRODUCT="GET_LIST_PRODUCT"
 export const GET_SUCCESS_LIST_PRODUCT="GET_SUCCESS_LIST_PRODUCT"
+
+
+//// users
+// export const PATCH_LIST_USER="PATCH_LIST_USER"
+export const POST_USER="POST_LIST_USER"
