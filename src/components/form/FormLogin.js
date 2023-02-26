@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Checkbox } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { act_login_user } from '../../redux/actions';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -20,6 +22,24 @@ const FormLogin = () => {
 
     setEmail(event.target.value);
   };
+
+  const [notification, setNotification] = useState("")
+  const elementNotice = <span className='formNotice'> Vui lòng kiểm tra lại thông tin !</span>
+  const [userLogin, setUserLogin] = useState({
+    email: "",
+    password: "",
+  })
+  const dispash = useDispatch()
+  const handleInnput = (e) => {
+    let key = e.target.name;
+    setUserLogin({ ...userLogin, [key]: e.target.value })
+  }
+
+  console.log("userLogin ngoai ham =>>", userLogin);
+  const handleLogin = () => {
+    console.log("userLogin trong ham =>>", userLogin);
+    dispash(act_login_user(userLogin))
+  }
   return (
     <div className='form'>
       <div className='formLoginContainer'>
@@ -29,8 +49,8 @@ const FormLogin = () => {
           <input email=''
             id="email"
             name="email"
-            value={email}
-            onChange={handleChange}
+            value={userLogin.email}
+            onChange={handleInnput}
             placeholder=' Nhập Email ....' />
         </div>
         <div className='emailErr'>
@@ -39,13 +59,16 @@ const FormLogin = () => {
         <div className='loginInput'>
           <span className='loginInput-titile'>Mật Khẩu :</span>
           <input
+            onChange={handleInnput}
             type='password'
+            value={userLogin.password}
+            name="password"
             placeholder=' Nhập Mật Khẩu ....' />
         </div>
-        <span className='formNotice'>Vui lòng nhập đúng thông tin!</span>
+        {/* <span className='formNotice'>Vui lòng nhập đúng thông tin!</span> */}
         <Checkbox className='loginInput_checkbox'>Remember me</Checkbox>
         <div className='formLoginSubmit'>
-          <Button type="primary" htmlType="submit" > Đăng Nhập</Button>
+          <Button type="primary" htmlType="submit" onClick={handleLogin}> Đăng Nhập</Button>
         </div>
         <div className='formBackToHome'>
           <Link to='/'>Về trang chủ</Link> /

@@ -26,7 +26,7 @@ const FormLogin = () => {
         handleInput(event)
     };
     const [policy, setPolicy] = useState(true);
-    const elementNotice = <span className='formNotice'> Vui lòng kiểm tra lại thông tin !</span>
+    const elementNotice = <span className='formNotice'> Vui lòng kiểm tra lại thông tin !!</span>
     const [userRegister, setUserRegister] = useState({
         id: "",
         email: "",

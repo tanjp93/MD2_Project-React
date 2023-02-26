@@ -25,3 +25,9 @@ export const act_post_user=user=>{
         payload:user
     }
 }
+export const act_login_user=user=>{
+    return{
+        type:actionTypes.LOGIN_USER,
+        payload:user
+    }
+}
