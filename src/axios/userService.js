@@ -28,6 +28,5 @@ export const USER_POST_SERVICE=async(user)=>{
 }
   
 export const USER_LOGIN_SERVICE=async(user)=>{
-   console.log(user);
    return await instance.post("login",user)
 }

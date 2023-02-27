@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Button, Checkbox } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { act_login_user } from '../../redux/actions';
+import { USER_LOGIN_SERVICE } from '../../axios/userService';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate()
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
@@ -35,10 +36,15 @@ const FormLogin = () => {
     setUserLogin({ ...userLogin, [key]: e.target.value })
   }
 
-  console.log("userLogin ngoai ham =>>", userLogin);
+
   const handleLogin = () => {
-    console.log("userLogin trong ham =>>", userLogin);
-    dispash(act_login_user(userLogin))
+    USER_LOGIN_SERVICE(userLogin).then((res) => {
+      console.log(res.data.accessToken);
+      if (res.data.accessToken) {
+        navigate('/')
+      } else alert("Đăng kí không thành công, Vui lòng kiểm tra lại thông tin !")
+    })
+
   }
   return (
     <div className='form'>

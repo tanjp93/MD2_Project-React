@@ -1,7 +1,7 @@
 import { Button, Checkbox } from 'antd';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../redux/actions';
 
@@ -10,7 +10,7 @@ const FormLogin = () => {
     const [email, setEmail] = useState('');
     const [error, setError] = useState(null);
     const [notification, setNotification] = useState("")
-
+    const navigate=useNavigate()
 
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
@@ -44,9 +44,11 @@ const FormLogin = () => {
         const { email, password, repassword } = userRegister;
         if (email && password && repassword && password == repassword && policy && !error) {
             dispash(actions.act_post_user({ email, password }))
-            return setNotification("");
+             setNotification("");
+             navigate('/login')
+
         } else {
-            return setNotification(elementNotice)
+            setNotification(elementNotice)
         }
     }
 
