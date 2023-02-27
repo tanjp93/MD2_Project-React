@@ -50,3 +50,8 @@ export const act_login_state=action=>{
         payload:action
     }
 }
+export const act_logout_state=()=>{
+    return {
+        type:actionTypes.IS_LOGOUT,
+    }
+}

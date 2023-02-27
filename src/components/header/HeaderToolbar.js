@@ -2,11 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import img from '../../assets/img/logo.png'
 import { useNavigate, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { act_logout_state } from '../../redux/actions';
 
 const HeaderToolbar = () => {
+    const dispatch=useDispatch()
+
     const [userLogin, setUserLogin] = useState('')
     const userLoginState = useSelector(state => state.userReducer);
+    console.log(userLogin);
+
+    const handleLogout=()=>{
+        dispatch(act_logout_state())
+    }
     const elementBtn = <>
         <Button type='primary' onClick={() => {
             navigate("/login")
@@ -17,7 +25,7 @@ const HeaderToolbar = () => {
     </>
     const elementShowUser = <div className='formShowEmailLogin' >
         <div className='showEmailLogin'>{userLoginState.email}</div>
-        <Button type='primary'>Logout</Button>
+        <Button type='primary' onClick={handleLogout}>Logout</Button>
     </div>
     useEffect(() => {
         userLoginState.email == '' ? setUserLogin(elementBtn) : setUserLogin(elementShowUser)
