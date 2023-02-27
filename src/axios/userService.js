@@ -28,8 +28,25 @@ export const USER_POST_SERVICE=async(user)=>{
 }
   
 export const USER_LOGIN_SERVICE=async(user)=>{
-   return await instance.post("login",user)
+   let respone = await instance.post("login",user)
+   return respone.data
 }
+
+
+
+export const USER_LOGIN_SUCCESS_SERVICE=async(user)=>{
+   return await instance.post("isLogin",user)
+}
+
+export const USER_OUT_SUCCESS_SERVICE=async(id)=>{
+   return await instance.del(`isLogin/${id}`)
+}
+
+export const USER_LOGIN_STATE_SERVICE=async(user)=>{
+   return await instance.get("isLogin",user)
+}
+
+
 export const USER_SEARCH_SERVICE=async(action)=>{
    // console.log(action);
    let loginUser=await instance.get(`users?email_like=${action.email}`)

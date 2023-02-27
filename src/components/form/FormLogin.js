@@ -35,17 +35,23 @@ const FormLogin = () => {
     setUserLogin({ ...userLogin, [key]: e.target.value })
   }
 
-  const userLoginState = useSelector(state => state.getLoginUser);
+  const userLoginState = useSelector(state => state.userReducer);
+  useEffect(() => {
+    userLoginState.accessToken !== "" && navigate("/")
+  },[userLoginState])
 
-  console.log("userLoginState =>>> ", userLoginState.email);
+  
   const handleLogin = () => {
     dispash(act_login_user(userLogin))
-    if (userLoginState) {
-      console.log(userLoginState);
-       navigate('/') 
-       setNotification('')
-      }
-      else {setNotification(elementNotice)}
+
+
+
+    // if (userLoginState) {
+    //   console.log(userLoginState);
+    //    navigate('/') 
+    //    setNotification('')
+    //   }
+    //   else {setNotification(elementNotice)}
   }
   return (
     <div className='form'>

@@ -9,4 +9,5 @@ export const POST_USER="POST_LIST_USER"
 export const LOGIN_USER="LOGIN_USER"
 export const SEARCH_USER="SEARCH_USER"
 export const LOGIN_SUCCESS="LOGIN_SUCCESS"
+export const IS_LOGIN="IS_LOGIN"
 

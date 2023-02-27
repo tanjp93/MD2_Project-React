@@ -39,9 +39,14 @@ export const act_search_user=user=>{
     }
 }
 export const act_login_succes=action=>{
-    console.log(action);
     return {
         type:actionTypes.LOGIN_SUCCESS,
+        payload:action
+    }
+}
+export const act_login_state=action=>{
+    return {
+        type:actionTypes.IS_LOGIN,
         payload:action
     }
 }
