@@ -30,13 +30,15 @@ export const USER_LOGIN_SAGA = function* (user) {
     // console.log(user);
     try {
         yield call(productServices.USER_LOGIN_SERVICE, user.payload)
-        yield put(actions.act_search_user(user.payload))
+        let userLogin=yield put(actions.act_search_user(user.payload))
+        console.log(userLogin.payload);
+        yield put(actions.act_login_succes(userLogin.payload))
+
     } catch (error) { 
         console.log('USER_LOGIN_SAGA =>',error );
     }
 }
 export const USER_SEARCH_SAGA = function*(user) {
-    console.log(user.payload);
     try {
         yield call(productServices.USER_SEARCH_SERVICE, user.payload)
         // yield put(productServices.USER_LOGIN_SUCCESS,user.payload)

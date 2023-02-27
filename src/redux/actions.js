@@ -38,3 +38,10 @@ export const act_search_user=user=>{
         payload:user
     }
 }
+export const act_login_succes=action=>{
+    console.log(action);
+    return {
+        type:actionTypes.LOGIN_SUCCESS,
+        payload:action
+    }
+}

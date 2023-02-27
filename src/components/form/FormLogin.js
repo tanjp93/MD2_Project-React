@@ -15,12 +15,12 @@ const FormLogin = () => {
 
   const handleChange = event => {
     if (!isValidEmail(event.target.value)) {
-      setError('Email is invalid');
+      setError('Email không đúng định dạng');
     } else {
       setError(null);
     }
-
     setEmail(event.target.value);
+    handleInnput(event)
   };
 
   const [notification, setNotification] = useState("")
@@ -34,12 +34,18 @@ const FormLogin = () => {
     let key = e.target.name;
     setUserLogin({ ...userLogin, [key]: e.target.value })
   }
-  const userLoginState =useSelector(state=>state.searchUser);
-  // console.log("userLoginState =>>> " ,userLoginState);
+
+  const userLoginState = useSelector(state => state.getLoginUser);
+
+  console.log("userLoginState =>>> ", userLoginState.email);
   const handleLogin = () => {
     dispash(act_login_user(userLogin))
-    // dispash(act_search_user(userLogin))
-    // (userLoginState)?navigate('/'):''
+    if (userLoginState) {
+      console.log(userLoginState);
+       navigate('/') 
+       setNotification('')
+      }
+      else {setNotification(elementNotice)}
   }
   return (
     <div className='form'>
@@ -51,7 +57,7 @@ const FormLogin = () => {
             id="email"
             name="email"
             value={userLogin.email}
-            onChange={handleInnput}
+            onChange={handleChange}
             placeholder=' Nhập Email ....' />
         </div>
         <div className='emailErr'>
@@ -64,10 +70,10 @@ const FormLogin = () => {
             type='password'
             value={userLogin.password}
             name="password"
-            placeholder=' Nhập Mật Khẩu ....' />
+            placeholder=' Nhập Mật Khẩu ....' /> 
         </div>
         {/* <span className='formNotice'>Vui lòng nhập đúng thông tin!</span> */}
-        <Checkbox className='loginInput_checkbox'>Remember me</Checkbox>
+        <Checkbox className='loginInput_checkbox'>Remember me <div>{notification}</div></Checkbox>
         <div className='formLoginSubmit'>
           <Button type="primary" htmlType="submit" onClick={handleLogin}> Đăng Nhập</Button>
         </div>

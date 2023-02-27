@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { getItems } from "./getItem";
+import { getItems,getLoginUser } from "./getItem";
 
 
-export const rootReducer=combineReducers({getItems})
+export const rootReducer=combineReducers({getItems,getLoginUser})

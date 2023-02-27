@@ -13,13 +13,10 @@ export const getItems = (state = [], action) => {
 
 
 //user
-
-export const searchUser=(state = [], action) =>{
-    console.log(action.payload);
+export const getLoginUser=(state = [], action) =>{
     switch (action.type){
-        case  actionTypes.SEARCH_USER:
-            console.log(action.payload);
-            return [...action.payload];
+        case  actionTypes.LOGIN_SUCCESS:
+            return action.payload;
         default:
             return state
     }
