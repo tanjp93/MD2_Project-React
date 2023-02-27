@@ -10,12 +10,15 @@ export const rootSaga=function*(){
         takeLatest(actionTypes.POST_USER,act_saga.USER_POST_SAGA),
         takeLatest(actionTypes.LOGIN_USER,act_saga.USER_LOGIN_SAGA),
 
+
+        
+
         // takeLatest(actionTypes.LOGIN_SUCCESS,act_saga.USER_LOGIN_SUCEES_SAGA),
 
-        takeLatest(actionTypes.IS_LOGIN,act_saga.USER_LOGIN_STATE_SAGA),
+        // takeLatest(actionTypes.IS_LOGIN,act_saga.USER_LOGIN_STATE_SAGA),
 
 
 
-        takeLatest(actionTypes.SEARCH_USER,act_saga.USER_SEARCH_SAGA),
+        // takeLatest(actionTypes.SEARCH_USER,act_saga.USER_SEARCH_SAGA),
     ])
 }

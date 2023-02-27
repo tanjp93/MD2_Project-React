@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'antd';
 import img from '../../assets/img/logo.png'
 import { useNavigate, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const HeaderToolbar = () => {
+    const [userLogin, setUserLogin] = useState('')
+    const userLoginState = useSelector(state => state.userReducer);
+    const elementBtn = <>
+        <Button type='primary' onClick={() => {
+            navigate("/login")
+        }}>Đăng Nhập</Button>
+        <Button onClick={() => {
+            navigate("/register")
+        }}>Đăng Ký</Button>
+    </>
+    const elementShowUser = <div className='formShowEmailLogin' >
+        <div className='showEmailLogin'>{userLoginState.email}</div>
+        <Button type='primary'>Logout</Button>
+    </div>
+    useEffect(() => {
+        userLoginState.email == '' ? setUserLogin(elementBtn) : setUserLogin(elementShowUser)
+    }, [userLoginState])
+    //    console.log(userLoginState.payload.user.email);
     const navigate = useNavigate()
     return (
         <div className='header'>
@@ -31,12 +50,7 @@ const HeaderToolbar = () => {
                     </ul>
                 </div>
                 <div className='header-menu_tool login-registerForm'>
-                    <Button type='primary' onClick={() => {
-                        navigate("/login")
-                    }}>Đăng Nhập</Button>
-                    <Button onClick={() => {
-                        navigate("/register")
-                    }}>Đăng Ký</Button>
+                    {userLogin}
                 </div>
             </div>
             <div className='header-opttion'>

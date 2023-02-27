@@ -43,15 +43,6 @@ const FormLogin = () => {
   
   const handleLogin = () => {
     dispash(act_login_user(userLogin))
-
-
-
-    // if (userLoginState) {
-    //   console.log(userLoginState);
-    //    navigate('/') 
-    //    setNotification('')
-    //   }
-    //   else {setNotification(elementNotice)}
   }
   return (
     <div className='form'>
