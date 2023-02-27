@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { Button, Checkbox } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { act_login_user } from '../../redux/actions';
-import { USER_LOGIN_SERVICE } from '../../axios/userService';
+import { useDispatch, useSelector } from 'react-redux';
+import { act_login_user, act_search_user } from '../../redux/actions';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -35,16 +34,12 @@ const FormLogin = () => {
     let key = e.target.name;
     setUserLogin({ ...userLogin, [key]: e.target.value })
   }
-
-
+  const userLoginState =useSelector(state=>state.searchUser);
+  // console.log("userLoginState =>>> " ,userLoginState);
   const handleLogin = () => {
-    USER_LOGIN_SERVICE(userLogin).then((res) => {
-      console.log(res.data.accessToken);
-      if (res.data.accessToken) {
-        navigate('/')
-      } else alert("Đăng kí không thành công, Vui lòng kiểm tra lại thông tin !")
-    })
-
+    dispash(act_login_user(userLogin))
+    // dispash(act_search_user(userLogin))
+    // (userLoginState)?navigate('/'):''
   }
   return (
     <div className='form'>

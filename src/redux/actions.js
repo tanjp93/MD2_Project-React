@@ -31,3 +31,10 @@ export const act_login_user=user=>{
         payload:user
     }
 }
+
+export const act_search_user=user=>{
+    return{
+        type:actionTypes.SEARCH_USER,
+        payload:user
+    }
+}
