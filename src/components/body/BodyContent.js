@@ -8,9 +8,9 @@ const BodyContent = () => {
     return (
         <div className='bodyContents'>
             <Order/>
-            {/* <Commercial/>
+            <Commercial/>
             <Options/>
-            <Services/> */}
+            <Services/>
         </div>
     );
 }
