@@ -6,6 +6,7 @@ export const rootSaga=function*(){
     yield all([
         //// products
         takeLatest(actionTypes.GET_LIST_PRODUCT,act_saga.PRODUCT_SAGA_GET),
+        takeLatest(actionTypes.GET_SEARCH_PRODUCT,act_saga.PRODUCT_SAGA_SEARCH),
         //// users
         takeLatest(actionTypes.POST_USER,act_saga.USER_POST_SAGA),
         takeLatest(actionTypes.LOGIN_USER,act_saga.USER_LOGIN_SAGA),

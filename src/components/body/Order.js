@@ -3,17 +3,19 @@ import { Button, theme } from 'antd';
 import { SearchOutlined } from "@ant-design/icons";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { DatePicker, Space } from 'antd';
+import { act_search_items } from '../../redux/actions';
 
 
 
 const { RangePicker } = DatePicker;
 
-const onPanelChange = (value, mode) => {
-    console.log(value.format('YYYY-MM-DD'), mode);
-};
+// const onPanelChange = (value, mode) => {
+//     console.log(value.format('YYYY-MM-DD'), mode);
+// };
 const Order = () => {
+
     const dateFormat = 'YYYY/MM/DD';
     const [searchData, setSearData] = useState({
         toWhere: "",
@@ -23,20 +25,9 @@ const Order = () => {
         },
         peopleNum: ""
     })
-
-    useEffect(() => {
-
-        // console.log(searchData);
-    },)
     const handleChange = (e) => {
-        // let key=e.target.name
-        console.log(e[1].$D);
-        console.log(e[1].$M + 1);
-        console.log(e[1].$y);
-        // setSearData({...searchData,[key]:e.target.value})
-    }
-    const handleSearch = () => {
-        //  let key=e.target.name
+        let key=e.target.name
+        setSearData({...searchData,[key]:e.target.value})
     }
     const [userLogin, setUserLogin] = useState('')
     const userLoginState = useSelector(state => state.userReducer);
@@ -59,6 +50,10 @@ const Order = () => {
         border: `1px solid ${token.colorBorderSecondary}`,
         borderRadius: token.borderRadiusLG,
     };
+    const dispatch=useDispatch();
+    const handleSearchData=()=>{
+        dispatch(act_search_items(searchData))
+    }
     return (
         <div className='body-oder'>
             <img src="https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/images%2Fkusatsu_KV.jpg?alt=media&token=15c9fc5c-b859-4ba9-bc9e-df0b355a6ed0" alt="" />
@@ -82,7 +77,11 @@ const Order = () => {
                             <div className='bodyOder-search_Oders_dayGo'>
                                 <p>Chọn Ngày Đi</p>
                                 <Space direction="vertical" size={12} name='date'>
-                                    <RangePicker onChange={handleChange} format={dateFormat} />
+                                    <RangePicker onChange={(e)=>{
+                                        let dayCome = `${e[0].$y}/${e[0].$M + 1}/${e[0].$D}`;
+                                        let dayLeave = `${e[1].$y}/${e[1].$M + 1}/${e[1].$D}`;
+                                        setSearData({...searchData, date:{dayCome, dayLeave}})
+                                    }} format={dateFormat} />
                                 </Space >
                             </div>
                             <div className='bodyOder-search_Oders_people'>
@@ -101,7 +100,7 @@ const Order = () => {
                                 </select>
                             </div>
                             <div className='bodyOder-search_btn' >
-                                <Button type='primary' style={{ display: "flex", alignItems: "center", justifyContent: "center" }} ><SearchOutlined /></Button>
+                                <Button onClick={handleSearchData} type='primary' style={{ display: "flex", alignItems: "center", justifyContent: "center" }} ><SearchOutlined /></Button>
                             </div>
                         </div>
                     </div>

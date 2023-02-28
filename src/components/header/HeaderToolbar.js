@@ -67,9 +67,9 @@ const HeaderToolbar = () => {
             </div>
             <div className='header-opttion'>
                 <ul>
-                    <li>Khách Sạn</li>
-                    <li>Vé Máy Bay</li>
-                    <li>Tour & Sự Kiện</li>
+                    <li >Khách Sạn</li>
+                    <li >Vé Máy Bay</li>
+                    <li ><Link to={'/product'}>Tour & Sự Kiện</Link></li>
                     <li>Nhà Hàng</li>
                     <li>Biệt Thự </li>
                     <li>Top Thương Hiệu </li>

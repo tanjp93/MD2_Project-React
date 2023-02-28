@@ -15,6 +15,18 @@ export const act_get_success_items = (payload) => {
         payload
     }
 }
+export const act_search_items = (payload) => {
+    return {
+        type: actionTypes.GET_SEARCH_PRODUCT,
+        payload
+    }
+}
+export const act_search_success_items = (payload) => {
+    return {
+        type: actionTypes.GET_SEARCH_SUCCESS,
+        payload
+    }
+}
 
 
 

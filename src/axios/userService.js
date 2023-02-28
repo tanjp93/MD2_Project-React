@@ -16,6 +16,12 @@ export const PRODUCT_PATCH_SERVICE= async(product)=>{
 export const PRODUCT_DELETE_SERVICE= async(id)=>{
    return   await instance.delete(`products/${id}`)
 }
+export const PRODUCT_SEARCH_PRODUCT_SERVICE= async(action)=>{
+   let searchList=await instance.get(`products?titleProduct_like=${action.toWhere}`) 
+   return searchList.data
+}
+
+
 
 //// users
 

@@ -8,7 +8,7 @@ const HomePage = () => {
         <div>
             <HeaderToolbar />
             <BodyContent />
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 }

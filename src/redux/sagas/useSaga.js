@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux'
 import { call, put } from 'redux-saga/effects'
 import * as productServices from '../../axios/userService'
 import * as actions from '../actions'
@@ -11,7 +10,16 @@ export const PRODUCT_SAGA_GET = function* () {
         let listProduct = yield call(productServices.PRODUCT_GET_SERVICE)
         yield put(actions.act_get_success_items(listProduct))
     } catch (error) {
+    }
+}
+export const PRODUCT_SAGA_SEARCH = function* (action) {
+    // console.log(action);
+    try {
+        let listProduct = yield call(productServices.PRODUCT_SEARCH_PRODUCT_SERVICE, action.payload)
 
+    
+        yield put(actions.act_search_success_items(listProduct))
+    } catch (error) {
     }
 }
 
@@ -20,7 +28,7 @@ export const PRODUCT_SAGA_GET = function* () {
 export const USER_POST_SAGA = function* (user) {
     try {
         yield call(productServices.USER_POST_SERVICE, user.payload)
-        alert(`Chúc mừng bạn đã đăng kí thành công với tài khoản ${user.payload.email} !` )
+        alert(`Chúc mừng bạn đã đăng kí thành công với tài khoản ${user.payload.email} !`)
     } catch (error) {
         console.log('vao USER_POST_SAGA Error', error);
         alert("Đăng kí không thành công, Vui lòng kiểm tra lại thông tin !")
@@ -30,11 +38,11 @@ export const USER_POST_SAGA = function* (user) {
 export const USER_LOGIN_SAGA = function* (user) {
     try {
 
-      let userInfo =  yield call(productServices.USER_LOGIN_SERVICE, user.payload)
+        let userInfo = yield call(productServices.USER_LOGIN_SERVICE, user.payload)
         yield put(actions.act_login_succes(userInfo))
 
     } catch (error) {
-       alert ("Vui lòng kiểm tra lại Email hoặc mật khẩu")
+        alert("Vui lòng kiểm tra lại Email hoặc mật khẩu")
     }
 }
 

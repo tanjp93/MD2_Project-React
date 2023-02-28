@@ -3,14 +3,15 @@ import Commercial from './Commercial';
 import Order from './Order';
 import Options from './Options';
 import Services from './Services';
+import Footer from '../footer/footer';
 
 const BodyContent = () => {
     return (
         <div className='bodyContents'>
-            <Order/>
-            <Commercial/>
-            <Options/>
-            <Services/>
+            <Order />
+            <Commercial />
+            <Options />
+            <Footer/>
         </div>
     );
 }
