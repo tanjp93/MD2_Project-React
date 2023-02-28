@@ -10,8 +10,6 @@ export const getItems = (state = [], action) => {
     }
 }
 
-
-
 //user
 export const getLoginUser=(state = [], action) =>{
     switch (action.type){

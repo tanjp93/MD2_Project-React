@@ -46,7 +46,6 @@ const FormLogin = () => {
             dispash(actions.act_post_user({ email, password }))
              setNotification("");
              navigate('/login')
-
         } else {
             setNotification(elementNotice)
         }

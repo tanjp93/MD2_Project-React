@@ -55,3 +55,27 @@ export const act_logout_state=()=>{
         type:actionTypes.IS_LOGOUT,
     }
 }
+
+/// current Unit///
+export const act_current_unit_state=(unit)=>{
+    // console.log(unit);
+    switch (unit){
+        case 'jpn' :
+         return{
+             type:actionTypes.JPN,
+             payload:unit
+         }        
+          case 'vnd' :
+         return{
+             type:actionTypes.VND,
+             payload:unit
+         }       
+           case 'usd' :
+         return{
+             type:actionTypes.USD,
+             payload:unit
+         }   
+
+    }
+
+}

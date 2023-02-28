@@ -20,6 +20,7 @@ export const PRODUCT_SAGA_GET = function* () {
 export const USER_POST_SAGA = function* (user) {
     try {
         yield call(productServices.USER_POST_SERVICE, user.payload)
+        alert(`Chúc mừng bạn đã đăng kí thành công với tài khoản ${user.payload.email} !` )
     } catch (error) {
         console.log('vao USER_POST_SAGA Error', error);
         alert("Đăng kí không thành công, Vui lòng kiểm tra lại thông tin !")

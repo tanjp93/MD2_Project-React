@@ -3,6 +3,8 @@ import { Rate } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../redux/actions';
 const Options = () => {
+    const unitCurrent=useSelector(state=>state.UnitReducer)
+    console.log(unitCurrent);
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(actions.act_get_items())
@@ -25,7 +27,7 @@ const Options = () => {
                     <Rate allowHalf defaultValue={itemProp.rate} ></Rate>
                     <p className='item-comment'>From: {itemProp.from}</p>
                 </div>
-                <div className='item-price'><p>{itemProp.price}</p> <p>{itemProp.currencyUnit}</p></div>
+                <div className='item-price'><p> {unitCurrent == 'VND' ? itemProp.price : unitCurrent == 'USD' ? itemProp.price/25000 : itemProp.price/200}</p> <p>{unitCurrent}</p></div>
             </div>
         </div>
     ))

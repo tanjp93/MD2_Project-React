@@ -12,3 +12,8 @@ export const LOGIN_SUCCESS="LOGIN_SUCCESS"
 export const IS_LOGIN="IS_LOGIN"
 export const IS_LOGOUT="IS_LOGOUT"
 
+//// current unit 
+
+export const JPN="JPN"
+export const VND="VND"
+export const USD="USD"

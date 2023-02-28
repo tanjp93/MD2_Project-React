@@ -3,16 +3,20 @@ import { Button } from 'antd';
 import img from '../../assets/img/logo.png'
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { act_logout_state } from '../../redux/actions';
+import { act_current_unit_state, act_logout_state } from '../../redux/actions';
 
 const HeaderToolbar = () => {
-    const dispatch=useDispatch()
-
+    const dispatch = useDispatch()
+    const [currencyUnit, setCurrentUnit] = useState('vnd')
+    useEffect(() => {
+        dispatch(act_current_unit_state(currencyUnit))
+    }, [currencyUnit])
+    // console.log(currencyUnit);
     const [userLogin, setUserLogin] = useState('')
     const userLoginState = useSelector(state => state.userReducer);
-    console.log(userLogin);
+    // console.log(userLogin);
 
-    const handleLogout=()=>{
+    const handleLogout = () => {
         dispatch(act_logout_state())
     }
     const elementBtn = <>
@@ -49,7 +53,7 @@ const HeaderToolbar = () => {
                         <li>Đơn Hàng</li>
                         <li>Top Thương Hiệu </li>
                         <li>
-                            <select>
+                            <select onChange={(e) => setCurrentUnit(e.target.value)}>
                                 <option value="vnd">VND</option>
                                 <option value="usd">USD</option>
                                 <option value="jpn">JPN</option>
