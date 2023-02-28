@@ -4,6 +4,7 @@ import HomePage from './components/homePage';
 import FormLogin from './components/form/FormLogin';
 import FormRegister from './components/form/FormRegister';
 import Product from './components/body/Product';
+import UserControl from './components/AdminControl/UserControl';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/login' element={<FormLogin/>} /> 
         <Route path='/register' element={<FormRegister/>} /> 
         <Route path='/product' element={<Product/>} /> 
+        <Route path='/users' element={<UserControl/>} /> 
       </Routes>
     </div>
   );

@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import img from '../../assets/img/logo.png'
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { act_current_unit_state, act_logout_state } from '../../redux/actions';
+import { act_current_unit_state, act_set_items, act_logout_state } from '../../redux/actions';
 
 const HeaderToolbar = () => {
     const dispatch = useDispatch()
@@ -53,7 +53,7 @@ const HeaderToolbar = () => {
                         <li>Đơn Hàng</li>
                         <li>Top Thương Hiệu </li>
                         <li>
-                            <select onChange={(e) => setCurrentUnit(e.target.value)}>
+                            <select className='header-menu_toolbarSelect'  onChange={(e) => setCurrentUnit(e.target.value)}>
                                 <option value="vnd">VND</option>
                                 <option value="usd">USD</option>
                                 <option value="jpn">JPN</option>
@@ -69,10 +69,17 @@ const HeaderToolbar = () => {
                 <ul>
                     <li >Khách Sạn</li>
                     <li >Vé Máy Bay</li>
-                    <li ><Link to={'/product'}>Tour & Sự Kiện</Link></li>
+                    <li
+                     onClick={()=>{
+                        navigate('/product')
+                        dispatch(act_set_items([]))
+                    }}
+                        >
+                            Tour & Sự Kiện
+                        </li>
                     <li>Nhà Hàng</li>
                     <li>Biệt Thự </li>
-                    <li>Top Thương Hiệu </li>
+                    <li>Quản Lý  </li>
                 </ul>
             </div>
         </div>
