@@ -30,12 +30,3 @@ export const actGetInfoItems = (state = [], action) => {
     }
 }
 
-//user
-export const getLoginUser = (state = [], action) => {
-    switch (action.type) {
-        case actionTypes.LOGIN_SUCCESS:
-            return action.payload;
-        default:
-            return state
-    }
-}

@@ -45,6 +45,19 @@ export const act_search_success_items = (payload) => {
 
 
 //user//
+export const act_get_list_user=user=>{
+    return{
+        type:actionTypes.GET_LIST_USERS,
+        payload:user
+    }
+}
+export const act_get_success_user=(payload)=>{
+    return{
+        type:actionTypes.GET_LIST_SUCCESS_USER,
+        payload
+    }
+}
+
 export const act_post_user=user=>{
     return{
         type:actionTypes.POST_USER,
@@ -65,6 +78,7 @@ export const act_search_user=user=>{
     }
 }
 export const act_login_succes=action=>{
+    
     return {
         type:actionTypes.LOGIN_SUCCESS,
         payload:action

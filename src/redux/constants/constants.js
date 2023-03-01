@@ -15,6 +15,8 @@ export const SEARCH_USER="SEARCH_USER"
 export const LOGIN_SUCCESS="LOGIN_SUCCESS"
 export const IS_LOGIN="IS_LOGIN"
 export const IS_LOGOUT="IS_LOGOUT"
+export const GET_LIST_USERS="GET_LIST_USERS"
+export const GET_LIST_SUCCESS_USER="GET_LIST_SUCCESS_USER"
 
 //// current unit 
 

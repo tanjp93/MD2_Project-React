@@ -55,3 +55,14 @@ export const USER_SEARCH_SAGA = function* (user) {
         console.log("USER_SEARCH_SAGA=>>", error);
     }
 }
+
+export const GET_LIST_USER_SAGA=function*(){
+    try {
+       let listUser= yield call(productServices.USER_GET_SERVICE)
+    //    console.log(listUser);
+       yield put(actions.act_get_success_user(listUser))
+       
+    } catch (error) {
+        
+    }
+}

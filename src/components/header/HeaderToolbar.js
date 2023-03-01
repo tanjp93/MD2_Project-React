@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Button } from 'antd';
 import img from '../../assets/img/logo.png'
 import { useNavigate, Link } from 'react-router-dom';
@@ -14,8 +14,6 @@ const HeaderToolbar = () => {
     // console.log(currencyUnit);
     const [userLogin, setUserLogin] = useState('')
     const userLoginState = useSelector(state => state.userReducer);
-    // console.log(userLogin);
-
     const handleLogout = () => {
         dispatch(act_logout_state())
     }
@@ -27,15 +25,29 @@ const HeaderToolbar = () => {
             navigate("/register")
         }}>Đăng Ký</Button>
     </>
+    useEffect(() => {
+       
+        userLoginState == '' ? setUserLogin(elementBtn) : setUserLogin(elementShowUser)
+    }, [userLoginState])
+
+    const navigate = useNavigate()
+
+
+    const [showEmailLogin, setShowEmailLogin] = useState('')
+    
+    useEffect(() => {
+ 
+        userLoginState !== "" && setShowEmailLogin(userLoginState.user.email)
+
+    }, [userLoginState])
     const elementShowUser = <div className='formShowEmailLogin' >
-        <div className='showEmailLogin'>{userLoginState.email}</div>
+        <div className='showEmailLogin'>{userLoginState ? userLoginState.user.email : ""}</div>
         <Button type='primary' onClick={handleLogout}>Logout</Button>
     </div>
-    useEffect(() => {
-        userLoginState.email == '' ? setUserLogin(elementBtn) : setUserLogin(elementShowUser)
-    }, [userLoginState])
-    //    console.log(userLoginState.payload.user.email);
-    const navigate = useNavigate()
+
+
+
+
     return (
         <div className='header'>
             <div className='header-menu'>
@@ -53,7 +65,7 @@ const HeaderToolbar = () => {
                         <li>Đơn Hàng</li>
                         <li>Top Thương Hiệu </li>
                         <li>
-                            <select className='header-menu_toolbarSelect'  onChange={(e) => setCurrentUnit(e.target.value)}>
+                            <select className='header-menu_toolbarSelect' onChange={(e) => setCurrentUnit(e.target.value)}>
                                 <option value="vnd">VND</option>
                                 <option value="usd">USD</option>
                                 <option value="jpn">JPN</option>
@@ -70,16 +82,18 @@ const HeaderToolbar = () => {
                     <li >Khách Sạn</li>
                     <li >Vé Máy Bay</li>
                     <li
-                     onClick={()=>{
-                        navigate('/product')
-                        dispatch(act_set_items([]))
-                    }}
-                        >
-                            Tour & Sự Kiện
-                        </li>
+                        onClick={() => {
+                            navigate('/product')
+                            dispatch(act_set_items([]))
+                        }}
+                    >
+                        Tour & Sự Kiện
+                    </li>
                     <li>Nhà Hàng</li>
                     <li>Biệt Thự </li>
-                    <li>Quản Lý  </li>
+                    <li onClick={() => {
+                        navigate('/controls')
+                    }}>Quản Lý  </li>
                 </ul>
             </div>
         </div>

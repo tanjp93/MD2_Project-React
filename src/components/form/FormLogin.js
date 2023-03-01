@@ -3,7 +3,8 @@ import { Button, Checkbox } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { act_login_user, act_search_user } from '../../redux/actions';
+import { act_login_succes, act_login_user, act_search_user } from '../../redux/actions';
+import axios from 'axios';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -37,11 +38,12 @@ const FormLogin = () => {
 
   const userLoginState = useSelector(state => state.userReducer);
   useEffect(() => {
-    userLoginState.accessToken !== "" && navigate("/")
+    userLoginState && navigate("/")
   },[userLoginState])
 
-  
-  const handleLogin = () => {
+  let userLoginSuccess=useSelector(state=>state.userReducer)
+  console.log(userLoginSuccess);
+  const handleLogin =  () => {
     dispash(act_login_user(userLogin))
   }
   return (
