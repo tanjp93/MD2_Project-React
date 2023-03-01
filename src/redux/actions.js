@@ -44,14 +44,22 @@ export const act_search_success_items = (payload) => {
 
 
 
+
+
+
+
 //user//
-export const act_get_list_user=user=>{
+export const act_get_list_user=()=>{
     return{
         type:actionTypes.GET_LIST_USERS,
-        payload:user
     }
 }
-export const act_get_success_user=(payload)=>{
+
+
+
+
+export const act_get_list_users_success=(payload)=>{
+   
     return{
         type:actionTypes.GET_LIST_SUCCESS_USER,
         payload
@@ -71,10 +79,31 @@ export const act_login_user=user=>{
     }
 }
 
-export const act_search_user=user=>{
+
+//user Edit//
+
+export const act_edit_user=user=>{
+  
+    return{
+        type:actionTypes.PRE_EDIT_USER,
+        payload:user
+    }
+}
+
+
+export const act_update_user=user=>{
+    console.log(user);
+    return{
+        type:actionTypes.UPDATE_USER,
+        payload:user
+    }
+}
+
+
+export const act_search_user=payload=>{
     return{
         type:actionTypes.SEARCH_USER,
-        payload:user
+        payload
     }
 }
 export const act_login_succes=action=>{
@@ -95,6 +124,10 @@ export const act_logout_state=()=>{
         type:actionTypes.IS_LOGOUT,
     }
 }
+
+
+
+
 
 /// current Unit///
 export const act_current_unit_state=(unit)=>{

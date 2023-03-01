@@ -11,7 +11,10 @@ export const rootSaga=function*(){
         //// users
         takeLatest(actionTypes.POST_USER,act_saga.USER_POST_SAGA),
         takeLatest(actionTypes.LOGIN_USER,act_saga.USER_LOGIN_SAGA),
-        takeLatest(actionTypes.GET_LIST_USERS,act_saga.GET_LIST_USER_SAGA)
+        takeLatest(actionTypes.GET_LIST_USERS,act_saga.GET_LIST_USER_SAGA),
+
+        takeLatest(actionTypes.UPDATE_USER,act_saga.GET_UPDATE_USER_SAGA),
+        takeLatest(actionTypes.SEARCH_USER,act_saga.USER_SEARCH_SAGA)
 
     ])
 }

@@ -17,7 +17,7 @@ export const PRODUCT_SAGA_SEARCH = function* (action) {
     try {
         let listProduct = yield call(productServices.PRODUCT_SEARCH_PRODUCT_SERVICE, action.payload)
 
-    
+
         yield put(actions.act_search_success_items(listProduct))
     } catch (error) {
     }
@@ -36,9 +36,11 @@ export const USER_POST_SAGA = function* (user) {
 }
 
 export const USER_LOGIN_SAGA = function* (user) {
-    try {
 
+    try {
         let userInfo = yield call(productServices.USER_LOGIN_SERVICE, user.payload)
+
+
         yield put(actions.act_login_succes(userInfo))
 
     } catch (error) {
@@ -50,19 +52,33 @@ export const USER_LOGIN_SAGA = function* (user) {
 export const USER_SEARCH_SAGA = function* (user) {
     try {
         yield call(productServices.USER_SEARCH_SERVICE, user.payload)
-        // yield put(productServices.USER_LOGIN_SUCCESS,user.payload)
+        // yield put(actions.)
     } catch (error) {
-        console.log("USER_SEARCH_SAGA=>>", error);
+        alert ("Vui lòng kiểm tra lại Email hoặc mật khẩu!")
     }
 }
 
-export const GET_LIST_USER_SAGA=function*(){
+export const GET_LIST_USER_SAGA = function* () {
     try {
-       let listUser= yield call(productServices.USER_GET_SERVICE)
-    //    console.log(listUser);
-       yield put(actions.act_get_success_user(listUser))
-       
+        let listUser = yield call(productServices.USER_GET_SERVICE)
+
+        yield put(actions.act_get_list_users_success(listUser))
+        //    yield put(actions.act_get_list_users_success(listUser))
+
     } catch (error) {
-        
+
+    }
+}
+
+
+export const GET_UPDATE_USER_SAGA = function* (preUser) {
+    console.log(preUser.payload.email);
+    try {
+        yield put(actions.act_search_user(preUser))
+        // let listUser = yield call(productServices.USER_GET_SERVICE)
+
+
+    } catch (error) {
+
     }
 }

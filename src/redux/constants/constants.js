@@ -17,6 +17,9 @@ export const IS_LOGIN="IS_LOGIN"
 export const IS_LOGOUT="IS_LOGOUT"
 export const GET_LIST_USERS="GET_LIST_USERS"
 export const GET_LIST_SUCCESS_USER="GET_LIST_SUCCESS_USER"
+export const PRE_EDIT_USER="PRE_EDIT_USER"
+export const UPDATE_USER="UPDATE_USER"
+
 
 //// current unit 
 

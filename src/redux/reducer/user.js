@@ -1,18 +1,37 @@
-import { LOGIN_SUCCESS, IS_LOGOUT,GET_LIST_SUCCESS_USER } from "../constants/constants";
+import { LOGIN_SUCCESS, IS_LOGOUT, GET_LIST_SUCCESS_USER, PRE_EDIT_USER } from "../constants/constants";
 
 const initialState = '';
-
-export const userReducer = (state = initialState, action) => {
+export const userLogin = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      console.log("reducer", action);
-      return  action.payload
-      // return { email: action.payload.user.email, accessToken: action.payload.accessToken, permission:action.payload.permission }
+      return action.payload;
     case IS_LOGOUT:
-      // console.log("reducer", action);
-      return initialState
-      case GET_LIST_SUCCESS_USER:
-        return action.payload
+      return '';
+
+    default:
+      return state;
+  }
+
+}
+
+
+
+export const listUser = (state = [], action) => {
+  switch (action.type) {
+    case GET_LIST_SUCCESS_USER:
+
+      return action.payload
+    default:
+      return state;
+  }
+}
+
+export const preEditUser = (state = '', action) => {
+
+  switch (action.type) {
+    case PRE_EDIT_USER:
+  
+      return action.payload
     default:
       return state;
   }

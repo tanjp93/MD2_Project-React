@@ -31,8 +31,12 @@ const FormLogin = () => {
         id: "",
         email: "",
         password: "",
-        repassword: ''
+        repassword: '',
+        fullname: '',
+        phoneNumber: '',
+        state: ""
     })
+    console.log(userRegister);
 
     const handleInput = (e) => {
         let key = e.target.name;
@@ -41,9 +45,9 @@ const FormLogin = () => {
     const dispash = useDispatch()
 
     const handleSubmit = () => {
-        const { email, password, repassword } = userRegister;
+        const { email, password, repassword, fullname,phoneNumber,state} = userRegister;
         if (email && password && repassword && password == repassword && policy && !error) {
-            dispash(actions.act_post_user({ email, password, permissions: 0 }))
+            dispash(actions.act_post_user({ email, password,fullname,phoneNumber, state:1,permissions: 0 }))
              setNotification("");
              navigate('/login')
         } else {
@@ -90,6 +94,24 @@ const FormLogin = () => {
                         type='password'
                         value={userRegister.repassword}
                         placeholder=' Vui Lòng Nhập Lại Mật Khẩu ....' />
+                </div>                
+                  <div className='loginInput'>
+                    <span className='loginInput-titile'>Nhập đầy đủ họ tên :</span>
+                    <input
+                        onChange={handleInput}
+                        name='fullname'
+                        type='text'
+                        value={userRegister.fullname}
+                        placeholder=' Vui Lòng Nhập Lại Mật Khẩu ....' />
+                </div>             
+                   <div className='loginInput'>
+                    <span className='loginInput-titile'>Nhập số điện thoại:</span>
+                    <input
+                        onChange={handleInput}
+                        value={userRegister.phoneNumber}
+                        name='phoneNumber'
+                        type='text'
+                        placeholder=' Vui Lòng Nhập số điện thoại ....' />
                 </div>
 
 

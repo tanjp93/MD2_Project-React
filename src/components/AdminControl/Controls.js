@@ -1,20 +1,32 @@
-import React ,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../footer/footer';
 import HeaderToolbar from '../header/HeaderToolbar';
 import logobgd from '../../assets/img/logo.png'
 import { Button, Space } from 'antd';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import UsersControl from './UsersControl';
-const Controls = () => {
-    const userLoginState = useSelector(state => state.userReducer); 
-    const dispatch=useDispatch()
+import { useNavigate } from 'react-router-dom';
+import { act_get_list_user } from '../../redux/actions';
+import ShowListUser from './ShowListUser';
 
-    useEffect(() => {
-        if (userLoginState!=='') {
-            console.log(userLoginState.user.permission==0);
-        } else  dispatch('/')
-    }, [userLoginState]);
+const Controls = () => {
+
+    const userLoginState = useSelector(state => state.userLogin);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    useEffect(()=>{
+        dispatch(act_get_list_user())
+    },[]) 
+  
+    // useEffect(() => {
+    //     if (userLoginState && userLoginState.user.permission == 1) {
+    //         return;
+    //     } else {
+    //         navigate("/")
+    //     }
+    // }, [userLoginState]);
+
+
     return (
         <div>
             <HeaderToolbar />
@@ -42,7 +54,7 @@ const Controls = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* <UsersControl/> */}
+                            <ShowListUser/>
                         </tbody>
                     </table>
                 </div>

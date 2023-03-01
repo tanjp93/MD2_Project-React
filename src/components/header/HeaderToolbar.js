@@ -13,7 +13,7 @@ const HeaderToolbar = () => {
     }, [currencyUnit])
     // console.log(currencyUnit);
     const [userLogin, setUserLogin] = useState('')
-    const userLoginState = useSelector(state => state.userReducer);
+    const userLoginState = useSelector(state => state.userLogin);
     const handleLogout = () => {
         dispatch(act_logout_state())
     }

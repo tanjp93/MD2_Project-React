@@ -36,13 +36,17 @@ const FormLogin = () => {
     setUserLogin({ ...userLogin, [key]: e.target.value })
   }
 
-  const userLoginState = useSelector(state => state.userReducer);
+  const userLoginState = useSelector(state => state.userLogin);
   useEffect(() => {
-    userLoginState && navigate("/")
+    if (userLoginState && userLoginState.user.permission == 0) {
+      navigate("/")
+    } else if (userLoginState && userLoginState.user.permission == 1) {
+      navigate("/controls")
+    }
+ 
   },[userLoginState])
 
-  let userLoginSuccess=useSelector(state=>state.userReducer)
-  console.log(userLoginSuccess);
+ 
   const handleLogin =  () => {
     dispash(act_login_user(userLogin))
   }

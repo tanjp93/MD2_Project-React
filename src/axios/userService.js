@@ -30,6 +30,7 @@ export const USER_POST_SERVICE=async(user)=>{
 }
   export const USER_GET_SERVICE=async()=>{
   let respone = await instance.get("users/")
+ 
    return respone.data
 }
   
@@ -54,7 +55,7 @@ export const USER_LOGIN_STATE_SERVICE=async(user)=>{
 
 
 export const USER_SEARCH_SERVICE=async(action)=>{
-   // console.log(action);
+
    let loginUser=await instance.get(`users?email_like=${action.email}`)
    // console.log(loginUser.data);
    return loginUser.data
