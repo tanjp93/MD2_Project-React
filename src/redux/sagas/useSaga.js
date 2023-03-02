@@ -81,10 +81,11 @@ export const GET_UPDATE_USER_SAGA = function* (preUser) {
     }
 }
 
-export const GET_ACTIVE_USER_SAGA = function* (preUser) {
-    console.log(preUser.payload);
+export const GET_ACTIVE_USER_SAGA = function* (activeUser) {
+    console.log(activeUser);
+
     try {
-        yield call(productServices.USER_PATCH_SERVICE,preUser.payload)
+        yield call(productServices.USER_PATCH_ACTIVE_SERVICE,activeUser.payload)
         yield put(actions.act_get_list_user())
     } catch (error) {
         alert("Kiểm tra lại mật khẩu")

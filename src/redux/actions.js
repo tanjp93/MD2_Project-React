@@ -106,7 +106,6 @@ export const act_update_user=user=>{
 
 
 export const act_status_user=user=>{
-    // console.log(user);
     return{
         type:actionTypes.ACTIVE_USER,
         payload:user

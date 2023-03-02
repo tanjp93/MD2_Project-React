@@ -41,7 +41,7 @@ const FormLogin = () => {
 
   useEffect(() => {
     
-      if (userLoginState &&userLoginState.user.permission == 0) {
+      if (userLoginState &&userLoginState.user.permission == 0 && userLoginState.user.state != 0) {
         navigate("/")
         // if (userLoginState.user.state == 0){
         //   dispatch(act_logout_state())

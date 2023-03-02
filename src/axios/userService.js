@@ -35,9 +35,12 @@ export const USER_POST_SERVICE=async(user)=>{
    return respone.data
 } 
  export const USER_PATCH_SERVICE=async(editUser)=>{
-   console.log(editUser);
+
    await instance.patch(`users/${editUser.id}`,editUser)
- 
+}
+   export const USER_PATCH_ACTIVE_SERVICE=async(activeUser)=>{
+   console.log(activeUser);
+   await instance.patch(`users/${activeUser.id}`,{"state": activeUser.state})
 }
   
 export const USER_LOGIN_SERVICE=async(user)=>{

@@ -17,13 +17,17 @@ const ShowListUser = () => {
     const handleDelete = (e) => {
         dispatch(act_delete_user(e))
     }
+
     const handleChangeState = (activeUser) => {
+      
         if (activeUser.state == 1) {
             activeUser.state = 0
-        } else if (activeUser.state == 0) {
+        } else if ( activeUser.state == 0) {
             activeUser.state = 1
         }
-        // console.log(activeUser.state);
+        console.log(activeUser);
+       
+        // console.log({state,id});
         dispatch(act_status_user(activeUser))
     }
 
