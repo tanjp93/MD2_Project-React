@@ -92,7 +92,7 @@ export const act_edit_user=user=>{
 
 
 export const act_update_user=user=>{
-    console.log(user);
+    // console.log(user);
     return{
         type:actionTypes.UPDATE_USER,
         payload:user

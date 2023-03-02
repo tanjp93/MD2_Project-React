@@ -23,7 +23,7 @@ const EditUser = () => {
         phone: '',
         state: 1
     })
-    console.log(editUser);
+    // console.log(editUser);
     const dispatch=useDispatch()
 ///function///
 const handleInput = (e) => {

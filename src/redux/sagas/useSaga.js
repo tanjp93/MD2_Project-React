@@ -50,8 +50,9 @@ export const USER_LOGIN_SAGA = function* (user) {
 
 
 export const USER_SEARCH_SAGA = function* (user) {
+    console.log(user.payload);
     try {
-        yield call(productServices.USER_SEARCH_SERVICE, user.payload)
+        yield call(productServices.USER_SEARCH_SERVICE, user.payload )
         // yield put(actions.)
     } catch (error) {
         alert ("Vui lòng kiểm tra lại Email hoặc mật khẩu!")
@@ -72,7 +73,7 @@ export const GET_LIST_USER_SAGA = function* () {
 
 
 export const GET_UPDATE_USER_SAGA = function* (preUser) {
-    console.log(preUser.payload.email);
+    // console.log(preUser.payload.email);
     try {
         yield put(actions.act_search_user(preUser))
         // let listUser = yield call(productServices.USER_GET_SERVICE)

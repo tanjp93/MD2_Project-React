@@ -33,7 +33,7 @@ const FormLogin = () => {
         password: "",
         repassword: '',
         fullname: '',
-        phoneNumber: '',
+        phone: '',
         state: ""
     })
     console.log(userRegister);
@@ -45,9 +45,9 @@ const FormLogin = () => {
     const dispash = useDispatch()
 
     const handleSubmit = () => {
-        const { email, password, repassword, fullname,phoneNumber,state} = userRegister;
+        const { email, password, repassword, fullname,phone,state} = userRegister;
         if (email && password && repassword && password == repassword && policy && !error) {
-            dispash(actions.act_post_user({ email, password,fullname,phoneNumber, state:1,permissions: 0 }))
+            dispash(actions.act_post_user({ email, password,fullname,phone, state:1,permissions: 0 }))
              setNotification("");
              navigate('/login')
         } else {
@@ -108,8 +108,8 @@ const FormLogin = () => {
                     <span className='loginInput-titile'>Nhập số điện thoại:</span>
                     <input
                         onChange={handleInput}
-                        value={userRegister.phoneNumber}
-                        name='phoneNumber'
+                        value={userRegister.phone}
+                        name='phone'
                         type='text'
                         placeholder=' Vui Lòng Nhập số điện thoại ....' />
                 </div>
