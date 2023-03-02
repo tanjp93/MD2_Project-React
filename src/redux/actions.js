@@ -42,6 +42,21 @@ export const act_search_success_items = (payload) => {
     }
 }
 
+export const act_delete_items = (payload) => {
+    return {
+        type: actionTypes.GET_DELETE_ITEM,
+        payload
+    }
+}
+
+// export const act_update_items = (payload) => {
+//     console.log(payload);
+//     return {
+//         type: actionTypes.GET_UPDATE_ITEM,
+//         payload
+//     }
+// }
+
 
 
 

@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../redux/actions';
 import { useNavigate } from 'react-router-dom';
 const Options = () => {
-    const showPrice=(quantity,price)=>{
-        return quantity*price
+    const showPrice = (quantity, price) => {
+        return quantity * price
     }
-    const numberPp=useSelector(state=>state.actGetNumberPP)
+    const numberPp = useSelector(state => state.actGetNumberPP)
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(numberPp);
-    },[numberPp])
+    }, [numberPp])
 
 
     const listItems = useSelector(state => state.getItems);
@@ -29,9 +29,12 @@ const Options = () => {
     }, [])
     const navigate = useNavigate()
 
-    let Item = showProducts.map((itemProp) => (
+    let Item = showProducts.map((itemProp) => {
+        let showMonney;
+        numberPp == '' ? showMonney = showPrice(1, itemProp.price) : showMonney = showPrice(numberPp, itemProp.price)
 
-        <div onClick={() => {
+
+        return <div onClick={() => {
             dispatch(actions.act_getInfo_items(itemProp))
             navigate('/product')
         }
@@ -49,10 +52,10 @@ const Options = () => {
                     <Rate allowHalf defaultValue={itemProp.rate} ></Rate>
                     <p className='item-comment'>From: {itemProp.from}</p>
                 </div>
-                <div className='item-price'><Button type='primary'> {unitCurrent == 'VND' ? itemProp.price : unitCurrent == 'USD' ? itemProp.price / 25000 : itemProp.price / 200}</Button> <p>{unitCurrent}</p></div>
+                <div className='item-price'><Button type='primary'> {unitCurrent == 'VND' ? showMonney : unitCurrent == 'USD' ? showMonney / 25000 : showMonney / 200}</Button> <p>{unitCurrent}</p></div>
             </div>
         </div>
-    ))
+    })
 
     useEffect(() => {
         let videoCollection = document.querySelectorAll(".introVideo");

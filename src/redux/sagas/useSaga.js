@@ -12,6 +12,18 @@ export const PRODUCT_SAGA_GET = function* () {
     } catch (error) {
     }
 }
+
+export const PRODUCT_SAGA_DELETE = function* (action) {
+    console.log(action.payload);
+    try {
+        yield call(productServices.PRODUCT_DELETE_SERVICE(action.payload))
+        yield put(actions.act_get_items())
+    } catch (error) {
+    }
+}
+
+
+
 export const PRODUCT_SAGA_SEARCH = function* (action) {
     // console.log(action);
     try {

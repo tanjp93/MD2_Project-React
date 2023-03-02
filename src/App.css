@@ -524,7 +524,7 @@ body {
     justify-content: center;
     background-color: #EDF6F9;
     overflow: hidden;
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/images%2Fdownload.jfif?alt=media&token=51451bcb-bb3e-4721-bb87-67a4ef7dd845');
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/images%2FslideProducts%2Fchua-tt1.jpg?alt=media&token=24c2d0dc-b217-49cb-9080-3b108c63104f');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1057,3 +1057,93 @@ body {
 }
 
 /*EditUser*/
+
+/* Add Items */
+
+.addProduct {
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addProduct_conttent {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+
+
+}
+
+.addProduct_titleProduct {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.addProductInfor {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.addProductDiscrible{
+    margin: 10px;
+    width: 30%;
+}
+
+.addProductDiscrible p{
+    margin: 10px;
+}
+.addProductTitle {
+    width: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.addProductTitleInput {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+}
+.addProduct_titleProductImg{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0px;
+}
+.productImg{
+    width: 33%;
+    /* background-color:cadetblue ; */
+    height: 400px;
+}
+.productImg span{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.productImg video{
+    width: 100%;
+}
+.productImg img{
+    width: 100%;
+    height: 100%;
+}
+.btn_addItem{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Add Items */
