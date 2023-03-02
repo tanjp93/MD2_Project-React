@@ -176,3 +176,12 @@ export const act_current_unit_state=(unit)=>{
     }
 
 }
+
+//// current pepleNumber
+export const act_get_number_pp=(numPeople)=>{
+    // console.log(numPeople);
+    return {
+        type:actionTypes.NUMBER_PP,
+        payload:numPeople
+    }
+}

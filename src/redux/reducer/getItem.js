@@ -30,3 +30,13 @@ export const actGetInfoItems = (state = [], action) => {
     }
 }
 
+
+export const actGetNumberPP = (state = '', action) => {
+    switch (action.type) {
+        case actionTypes.NUMBER_PP:
+            // console.log(action.payload);
+            return action.payload;
+        default:
+            return state
+    }
+}

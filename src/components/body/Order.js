@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, theme } from 'antd';
+import { Button } from 'antd';
 import { SearchOutlined } from "@ant-design/icons";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DatePicker, Space } from 'antd';
-import { act_search_items } from '../../redux/actions';
+import { act_get_number_pp, act_search_items } from '../../redux/actions';
 
 
 
@@ -25,6 +25,13 @@ const Order = () => {
         },
         peopleNum: ""
     })
+
+    let numPeople=1;
+    const handleChangeNumber=(e)=>{
+         numPeople=e.target.value
+         dispatch(act_get_number_pp(numPeople))
+        handleChange(e)
+    }
     const handleChange = (e) => {
         let key=e.target.name
         setSearData({...searchData,[key]:e.target.value})
@@ -45,16 +52,13 @@ const Order = () => {
 
 
     const navigate = useNavigate()
-    const { token } = theme.useToken();
-    const wrapperStyle = {
-        width: 300,
-        border: `1px solid ${token.colorBorderSecondary}`,
-        borderRadius: token.borderRadiusLG,
-    };
+
+ 
     const dispatch=useDispatch();
     const handleSearchData=()=>{
         dispatch(act_search_items(searchData))
     }
+
     return (
         <div className='body-oder'>
             <img src="https://firebasestorage.googleapis.com/v0/b/md2-reactjs.appspot.com/o/images%2Fkusatsu_KV.jpg?alt=media&token=15c9fc5c-b859-4ba9-bc9e-df0b355a6ed0" alt="" />
@@ -88,10 +92,10 @@ const Order = () => {
                             <div className='bodyOder-search_Oders_people'>
                                 <label>Chọn Số Người</label>
                                 <select className='bodyOder-search_Oders_numPp'
-                                    onChange={handleChange}
+                                    onChange={handleChangeNumber}
                                     name='peopleNum'
                                 >
-                                    <option value="" disabled >Nhập số người</option>
+                                    <option value="1" >Nhập số người</option>
                                     <option value="1" >1 người lớn</option>
                                     <option value="2" >2 người lớn</option>
                                     <option value="3" >3 người lớn</option>

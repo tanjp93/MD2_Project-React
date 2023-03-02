@@ -901,6 +901,74 @@ body {
     border: 1px solid;
 }
 
+.listProducts-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.listProduct-show {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.listProduct-show h3 {
+    padding: 20px 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.listProduct-show p {
+    width: 100%;
+    display: flex;
+    margin: 10px 0px;
+    justify-content: flex-start;
+}
+
+.listProduct-show table {
+    width: 100%;
+    border: 1px solid;
+}
+
+.listProduct-show table th {
+    border: 1px solid;
+    padding: 20px 0px;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.listProduct-show table td {
+    border: 1px solid;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.listProduct-container-img {
+    width: 100%;
+    position: absolute;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+
+
+
+/* .listProduct-container-img{
+    width: 100%;
+    opacity: 0.2;
+} */
+
+
 /*UserControl*/
 
 /*EditUser*/
@@ -920,7 +988,7 @@ body {
     overflow: hidden;
     background-size: cover;
     box-sizing: border-box;
-  
+
 }
 
 .editFormContents {

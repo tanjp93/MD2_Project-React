@@ -28,3 +28,8 @@ export const ACTIVE_USER="ACTIVE_USER"
 export const JPN="JPN"
 export const VND="VND"
 export const USD="USD"
+
+
+
+//// current pepleNumber
+export const NUMBER_PP="NUMBER_PP"

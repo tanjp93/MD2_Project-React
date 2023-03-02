@@ -6,6 +6,7 @@ import FormRegister from './components/form/FormRegister';
 import Product from './components/body/Product';
 import Controls from './components/AdminControl/Controls';
 import EditUser from './components/AdminControl/EditUser';
+import AddItem from './components/AdminControl/AddItem';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/product' element={<Product/>} /> 
         <Route path='/controls' element={<Controls/>} /> 
         <Route path='/controls/edit' element={<EditUser/>} /> 
+        <Route path='/controls/addItem' element={<AddItem/>} /> 
       </Routes>
     </div>
   );

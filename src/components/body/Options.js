@@ -4,6 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../redux/actions';
 import { useNavigate } from 'react-router-dom';
 const Options = () => {
+    const showPrice=(quantity,price)=>{
+        return quantity*price
+    }
+    const numberPp=useSelector(state=>state.actGetNumberPP)
+
+    useEffect(()=>{
+        console.log(numberPp);
+    },[numberPp])
+
+
     const listItems = useSelector(state => state.getItems);
     const listSearch = useSelector((state => state.getSearchItems))
     const [showProducts, setShowProducts] = useState([])

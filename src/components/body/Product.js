@@ -10,7 +10,9 @@ import Footer from '../footer/footer';
 
 
 const Product = () => {
-    const dispatch = useDispatch()
+
+    
+    const dispatch=useDispatch()
     const listItems = useSelector(state => state.getItems);
    
     const [showProducts, setShowProducts] = useState([])
