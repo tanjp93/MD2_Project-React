@@ -31,9 +31,9 @@ const Order = () => {
     }
     const [userLogin, setUserLogin] = useState('')
     const userLoginState = useSelector(state => state.userLogin);
-    console.log(userLoginState);
+
     useEffect(() => {
-        userLoginState.email == '' ? setUserLogin(elementBtn) : setUserLogin('')
+        userLoginState == '' ? setUserLogin(elementBtn) : setUserLogin('')
     }, [userLoginState])
     const elementBtn = <div className='oder-content'>
         <p className='oder-content-notice'>Đăng nhập để nhận thêm ưu đãi 15% khi đặt phòng khách sạn, vé máy bay</p>

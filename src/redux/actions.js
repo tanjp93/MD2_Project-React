@@ -91,11 +91,36 @@ export const act_edit_user=user=>{
 }
 
 
+
+
+
+
+
 export const act_update_user=user=>{
     // console.log(user);
     return{
         type:actionTypes.UPDATE_USER,
         payload:user
+    }
+}
+
+
+export const act_status_user=user=>{
+    // console.log(user);
+    return{
+        type:actionTypes.ACTIVE_USER,
+        payload:user
+    }
+}
+
+
+
+
+export const act_delete_user=user=>{
+
+    return{
+        type:actionTypes.DELETE_USER,
+        payload:user.id
     }
 }
 

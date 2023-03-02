@@ -28,13 +28,20 @@ export const PRODUCT_SEARCH_PRODUCT_SERVICE= async(action)=>{
 export const USER_POST_SERVICE=async(user)=>{
    return await instance.post("users/",user)
 }
+
   export const USER_GET_SERVICE=async()=>{
   let respone = await instance.get("users/")
  
    return respone.data
+} 
+ export const USER_PATCH_SERVICE=async(editUser)=>{
+   console.log(editUser);
+   await instance.patch(`users/${editUser.id}`,editUser)
+ 
 }
   
 export const USER_LOGIN_SERVICE=async(user)=>{
+
    let respone = await instance.post("login",user)
    return respone.data
 }
@@ -53,12 +60,16 @@ export const USER_LOGIN_STATE_SERVICE=async(user)=>{
    return await instance.get("isLogin",user)
 }
 
+export const USER_DELETE_SERVICE=async(id)=>{
+   console.log(id);
+   return await instance.delete(`users/${id}`)
+}
+
 
 export const USER_SEARCH_SERVICE=async(action)=>{
    let loginUser=await instance.patch(`users?email_like=${action.payload.email}`)
    console.log(loginUser.data);
    return loginUser.data
-
 }
 
 // export const USER_LOGIN_SUCCESS=async(action)=>{

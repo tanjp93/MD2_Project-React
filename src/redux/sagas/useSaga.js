@@ -39,12 +39,11 @@ export const USER_LOGIN_SAGA = function* (user) {
 
     try {
         let userInfo = yield call(productServices.USER_LOGIN_SERVICE, user.payload)
-
-
+        console.log(userInfo);
         yield put(actions.act_login_succes(userInfo))
 
     } catch (error) {
-        alert("Vui lòng kiểm tra lại Email hoặc mật khẩu")
+        alert("Vui lòng kiểm tra lại Email hoặc mật khẩu!!! USER_LOGIN_SAGA")
     }
 }
 
@@ -52,17 +51,16 @@ export const USER_LOGIN_SAGA = function* (user) {
 export const USER_SEARCH_SAGA = function* (user) {
     console.log(user.payload);
     try {
-        yield call(productServices.USER_SEARCH_SERVICE, user.payload )
+        yield call(productServices.USER_SEARCH_SERVICE, user.payload)
         // yield put(actions.)
     } catch (error) {
-        alert ("Vui lòng kiểm tra lại Email hoặc mật khẩu!")
+        alert("Vui lòng kiểm tra lại Email hoặc mật khẩu!")
     }
 }
 
 export const GET_LIST_USER_SAGA = function* () {
     try {
         let listUser = yield call(productServices.USER_GET_SERVICE)
-
         yield put(actions.act_get_list_users_success(listUser))
         //    yield put(actions.act_get_list_users_success(listUser))
 
@@ -73,13 +71,33 @@ export const GET_LIST_USER_SAGA = function* () {
 
 
 export const GET_UPDATE_USER_SAGA = function* (preUser) {
-    // console.log(preUser.payload.email);
+    // console.log(preUser.payload);
     try {
-        yield put(actions.act_search_user(preUser))
-        // let listUser = yield call(productServices.USER_GET_SERVICE)
-
-
+        yield call(productServices.USER_PATCH_SERVICE,preUser.payload)
+        yield put(actions.act_get_list_user())
+        yield alert("Cập nhật thành công")
     } catch (error) {
+        alert("Kiểm tra lại mật khẩu")
+    }
+}
 
+export const GET_ACTIVE_USER_SAGA = function* (preUser) {
+    console.log(preUser.payload);
+    try {
+        yield call(productServices.USER_PATCH_SERVICE,preUser.payload)
+        yield put(actions.act_get_list_user())
+    } catch (error) {
+        alert("Kiểm tra lại mật khẩu")
+    }
+}
+
+
+export const GET_DELETE_USER_SAGA = function* (useId) {
+    // console.log(useId);
+    try {
+        yield call(productServices.USER_DELETE_SERVICE,useId.payload)
+        yield put(actions.act_get_list_user())
+    } catch (error) {
+        alert("Không thể xóa")
     }
 }

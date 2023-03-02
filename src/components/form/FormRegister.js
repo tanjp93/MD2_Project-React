@@ -34,7 +34,8 @@ const FormLogin = () => {
         repassword: '',
         fullname: '',
         phone: '',
-        state: ""
+        state: 1,
+        
     })
     console.log(userRegister);
 
@@ -47,7 +48,7 @@ const FormLogin = () => {
     const handleSubmit = () => {
         const { email, password, repassword, fullname,phone,state} = userRegister;
         if (email && password && repassword && password == repassword && policy && !error) {
-            dispash(actions.act_post_user({ email, password,fullname,phone, state:1,permissions: 0 }))
+            dispash(actions.act_post_user({ email, password,fullname,phone, state:1,permission: 0 }))
              setNotification("");
              navigate('/login')
         } else {

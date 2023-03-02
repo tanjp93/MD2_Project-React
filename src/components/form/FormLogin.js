@@ -3,8 +3,8 @@ import { Button, Checkbox } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { act_login_succes, act_login_user, act_search_user } from '../../redux/actions';
-import axios from 'axios';
+import {  act_login_user, act_logout_state } from '../../redux/actions';
+
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
@@ -30,25 +30,35 @@ const FormLogin = () => {
     email: "",
     password: "",
   })
-  const dispash = useDispatch()
+  const dispatch = useDispatch()
   const handleInnput = (e) => {
     let key = e.target.name;
     setUserLogin({ ...userLogin, [key]: e.target.value })
   }
 
   const userLoginState = useSelector(state => state.userLogin);
-  useEffect(() => {
-    if (userLoginState && userLoginState.user.permission == 0) {
-      navigate("/")
-    } else if (userLoginState && userLoginState.user.permission == 1) {
-      navigate("/controls")
-    }
- 
-  },[userLoginState])
 
- 
-  const handleLogin =  () => {
-    dispash(act_login_user(userLogin))
+
+  useEffect(() => {
+    
+      if (userLoginState &&userLoginState.user.permission == 0) {
+        navigate("/")
+        // if (userLoginState.user.state == 0){
+        //   dispatch(act_logout_state())
+        // }
+      } else if (userLoginState && userLoginState.user.permission == 1) {
+        navigate("/controls")
+      }
+
+
+
+      
+
+  }, [userLoginState])
+
+
+  const handleLogin = () => {
+    dispatch(act_login_user(userLogin))
   }
   return (
     <div className='form'>
@@ -73,7 +83,7 @@ const FormLogin = () => {
             type='password'
             value={userLogin.password}
             name="password"
-            placeholder=' Nhập Mật Khẩu ....' /> 
+            placeholder=' Nhập Mật Khẩu ....' />
         </div>
         {/* <span className='formNotice'>Vui lòng nhập đúng thông tin!</span> */}
         <Checkbox className='loginInput_checkbox'>Remember me <div>{notification}</div></Checkbox>
