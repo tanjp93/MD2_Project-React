@@ -14,11 +14,20 @@ export const PRODUCT_SAGA_GET = function* () {
 }
 
 export const PRODUCT_SAGA_DELETE = function* (action) {
-    console.log(action.payload);
+    // console.log(action.payload);
     try {
         yield call(productServices.PRODUCT_DELETE_SERVICE(action.payload))
         yield put(actions.act_get_items())
     } catch (error) {
+    }
+}
+export const PRODUCT_SAGA_CREATE = function* (action) {
+    console.log(action.payload);
+    try {
+        yield call(productServices.PRODUCT_POST_SERVICE(action.payload))
+        yield put(actions.act_get_items())
+    } catch (error) {
+        console.log('ERROR PRODUCT_SAGA_CREATE', error);
     }
 }
 
@@ -32,6 +41,18 @@ export const PRODUCT_SAGA_SEARCH = function* (action) {
 
         yield put(actions.act_search_success_items(listProduct))
     } catch (error) {
+    }
+}
+
+
+export const PRODUCT_SAGA_UPDATE=function*(action){
+    // console.log(action);
+    try {
+        yield call(productServices. PRODUCT_PATCH_SERVICE , action.payload)
+        yield put(actions.act_get_items())
+        yield alert("Cập nhật Thành Công")
+    } catch (error) {
+        console.log("PRODUCT_SAGA_UPDATE >>>>" ,PRODUCT_SAGA_UPDATE );
     }
 }
 

@@ -20,13 +20,13 @@ const Controls = () => {
         dispatch(act_get_list_user())
     }, [])
 
-    // useEffect(() => {
-    //     if (userLoginState && userLoginState.user.permission == 1) {
-    //         return;
-    //     } else {
-    //         navigate("/")
-    //     }
-    // }, [userLoginState]);
+    useEffect(() => {
+        if (userLoginState && userLoginState.user.permission == 1) {
+            return;
+        } else {
+            navigate("/")
+        }
+    }, [userLoginState]);
 
     const [controlUser, setControlUser] = useState(true)
 
@@ -72,7 +72,7 @@ const Controls = () => {
                 <div className='listProduct-show'>
                     <h3> Danh sách sản phẩm</h3>
                     <p> <Button type="primary" >
-                        <Link to={'/controls/addItem'}>Thêm Sản Phẩn</Link>
+                        <Link to={'/controls/addItems'}>Thêm Sản Phẩn</Link>
                     </Button>
                     </p>
                     <table >

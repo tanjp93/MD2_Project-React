@@ -105,6 +105,8 @@ section {
 body {
     line-height: 1;
     font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 ol,
@@ -124,7 +126,9 @@ q:after {
     content: '';
     content: none;
 }
-
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -1059,7 +1063,10 @@ body {
 /*EditUser*/
 
 /* Add Items */
-
+.addItemPage{
+    width: 100%;
+    position: relative;
+}
 .addProduct {
     width: 100%;
     margin: 20px 0px;
@@ -1125,7 +1132,7 @@ body {
 .productImg{
     width: 33%;
     /* background-color:cadetblue ; */
-    height: 400px;
+    height: 300px;
 }
 .productImg span{
     width: 100%;
@@ -1144,6 +1151,15 @@ body {
     width: 100%;
     text-align: center;
     margin-bottom: 50px;
+}
+
+.addItem-bgrd{
+    width: 100%;
+    opacity: 0.2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
 
 /* Add Items */

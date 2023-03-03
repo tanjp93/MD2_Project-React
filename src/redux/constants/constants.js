@@ -7,6 +7,7 @@ export const GET_INFOR_PRODUCT="GET_INFOR_PRODUCT"
 export const SET_PRODUCT="SET_PRODUCT"
 export const GET_DELETE_ITEM="GET_DELETE_ITEM"
 export const GET_UPDATE_ITEM="GET_UPDATE_ITEM"
+export const GET_CREATE_ITEM="GET_CREATE_ITEM"
 
 
 //// users

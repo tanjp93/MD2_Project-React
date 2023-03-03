@@ -8,6 +8,12 @@ export const rootSaga=function*(){
         takeLatest(actionTypes.GET_LIST_PRODUCT,act_saga.PRODUCT_SAGA_GET),
         takeLatest(actionTypes.GET_SEARCH_PRODUCT,act_saga.PRODUCT_SAGA_SEARCH),
         takeLatest(actionTypes.GET_DELETE_ITEM,act_saga.PRODUCT_SAGA_DELETE),
+        takeLatest(actionTypes.GET_UPDATE_ITEM,act_saga.PRODUCT_SAGA_UPDATE),
+
+        takeLatest(actionTypes.GET_CREATE_ITEM,act_saga.PRODUCT_SAGA_CREATE),
+
+
+
     
         //// users
         takeLatest(actionTypes.POST_USER,act_saga.USER_POST_SAGA),

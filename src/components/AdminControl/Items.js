@@ -16,7 +16,7 @@ const Items = () => {
     }
     const handleUpdate=(e)=>{
         ( localStorage.setItem('itemUpdate',JSON.stringify(e)))
-        navigate('/controls/addItem')
+        navigate('/controls/editItem')
     }
     const item = listItems.map(item => {
         return <tr key={item.id}>

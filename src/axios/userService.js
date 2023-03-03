@@ -8,10 +8,40 @@ export const PRODUCT_GET_SERVICE= async()=>{
 }
 
 export const PRODUCT_POST_SERVICE= async(product)=>{
+   console.log(product);
    return   await instance.post("products",product)
 }
+
+
+
 export const PRODUCT_PATCH_SERVICE= async(product)=>{
-   return   await instance.patch(`products/${product.id}`,product)
+   console.log(product);
+   return   await instance.patch(`products/${product.id}`,{
+      "state": product.state,
+      "videoSrc":product.videoSrc,
+      "promotion":product.promotion,
+      "titleProduct":product.titleProduct,
+      "from":product.from,
+      "price":product.price,
+      "img":{
+         "img1":product.img.img1,
+         "img2":product.img.img2,
+         "img3":product.img.img3,
+         "img4":product.img.img4,
+         "img5":product.img.img5,
+         "img6":product.img.img6,
+         "img7":product.img.img7,
+         "img8":product.img.img8,
+      },
+      "cmt":{
+         "cmt1":product.cmt.cmt1,
+         "cmt2":product.cmt.cmt2,
+         "cmt3":product.cmt.cmt3,
+         "cmt4":product.cmt.cmt4,
+         "cmt5":product.cmt.cmt5,
+         "cmt6":product.cmt.cmt6,
+      }
+   })
 }
 export const PRODUCT_DELETE_SERVICE= async(id)=>{
    return   await instance.delete(`products/${id}`)

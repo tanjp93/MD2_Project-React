@@ -6,7 +6,8 @@ import FormRegister from './components/form/FormRegister';
 import Product from './components/body/Product';
 import Controls from './components/AdminControl/Controls';
 import EditUser from './components/AdminControl/EditUser';
-import AddItem from './components/AdminControl/AddItem';
+import EditItem from './components/AdminControl/EditItem';
+import AddProduct from './components/AdminControl/AddProduct';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/product' element={<Product/>} /> 
         <Route path='/controls' element={<Controls/>} /> 
         <Route path='/controls/edit' element={<EditUser/>} /> 
-        <Route path='/controls/addItem' element={<AddItem/>} /> 
+        <Route path='/controls/editItem' element={<EditItem/>} /> 
+        <Route path='/controls/addItems' element={<AddProduct/>} /> 
       </Routes>
     </div>
   );

@@ -49,13 +49,21 @@ export const act_delete_items = (payload) => {
     }
 }
 
-// export const act_update_items = (payload) => {
-//     console.log(payload);
-//     return {
-//         type: actionTypes.GET_UPDATE_ITEM,
-//         payload
-//     }
-// }
+export const act_update_items = (payload) => {
+    // console.log(payload);
+    return {
+        type: actionTypes.GET_UPDATE_ITEM,
+        payload
+    }
+}
+
+export const act_create_items = (payload) => {
+    // console.log(payload);
+    return {
+        type: actionTypes.GET_CREATE_ITEM,
+        payload
+    }
+}
 
 
 

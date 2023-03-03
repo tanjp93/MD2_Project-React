@@ -10,7 +10,7 @@ const Options = () => {
     const numberPp = useSelector(state => state.actGetNumberPP)
 
     useEffect(() => {
-        console.log(numberPp);
+        // console.log(numberPp);
     }, [numberPp])
 
 
